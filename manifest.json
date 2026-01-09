@@ -2,11 +2,19 @@
   "name": "Pekan Olutpaja - Panokirja Pro",
   "short_name": "Panokirja",
   "description": "Virallinen oluen panopäiväkirja",
-  "start_url": ".",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0f172a",
   "theme_color": "#d97706",
+  "orientation": "portrait",
+  "lang": "fi",
   "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/931/931949.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
       "src": "https://cdn-icons-png.flaticon.com/512/931/931949.png",
       "sizes": "512x512",
