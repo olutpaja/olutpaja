@@ -12,8 +12,8 @@
     <meta name="apple-mobile-web-app-title" content="Panokirja">
     <meta name="mobile-web-app-capable" content="yes">
 
-    <!-- Web Manifest Data URI muodossa (yhden tiedoston sääntö) -->
-    <link rel="manifest" href='data:application/manifest+json,{"name":"Pekan Olutpaja - Panokirja Pro","short_name":"Panokirja","start_url":".","display":"standalone","background_color":"#0f172a","theme_color":"#d97706","icons":[{"src":"https://cdn-icons-png.flaticon.com/512/931/931949.png","sizes":"512x512","type":"image/png"}]}'>
+    <!-- Web Manifest Data URI muodossa (Tärkeä APK-muunnosta varten) -->
+    <link rel="manifest" href='data:application/manifest+json,{"name":"Pekan Olutpaja - Panokirja Pro","short_name":"Panokirja","start_url":"./index.html","display":"standalone","background_color":"#0f172a","theme_color":"#d97706","icons":[{"src":"https://cdn-icons-png.flaticon.com/512/931/931949.png","sizes":"512x512","type":"image/png"}]}'>
 
     <style>
         :root {
@@ -356,6 +356,7 @@
     const savedSettings = localStorage.getItem(SETTINGS_KEY);
     let settings = savedSettings ? JSON.parse(savedSettings) : { brewery: "PEKAN OLUTPAJA", master: "Pekka Niemistö" };
 
+    // PWA Service Workerin rekisteröinti (yhden tiedoston mandate)
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             const swCode = `self.addEventListener('fetch', e => e.respondWith(fetch(e.request)));`;
