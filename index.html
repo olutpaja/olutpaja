@@ -12,8 +12,8 @@
     <meta name="apple-mobile-web-app-title" content="Panokirja">
     <meta name="mobile-web-app-capable" content="yes">
 
-    <!-- Päivitetty Web Manifest (Data URI) - Huom: start_url muutettu muotoon "." -->
-     <link rel="manifest" href="manifest.json">
+    <!-- Viittaus erilliseen manifest-tiedostoon -->
+    <link rel="manifest" href="manifest.json">
 
     <style>
         :root {
@@ -345,7 +345,7 @@
     <div class="footer-line"></div>
     &copy; 2026 <span id="footer-copy-text">Pekan Olutpaja (Pekka Niemistö)</span>
     <div class="footer-credit">Sovelluksen toteutus: Pekka Niemistö</div>
-    <div class="footer-version">Versio 1.1</div>
+    <div class="footer-version">Versio 1.2</div>
 </footer>
 
 <script>
@@ -356,12 +356,19 @@
     const savedSettings = localStorage.getItem(SETTINGS_KEY);
     let settings = savedSettings ? JSON.parse(savedSettings) : { brewery: "PEKAN OLUTPAJA", master: "Pekka Niemistö" };
 
-    // Service Workerin rekisteröinti (yhden tiedoston mandate)
+    // Service Workerin rekisteröinti parannetulla offline-tuella
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             const swCode = `
-                self.addEventListener('install', e => self.skipWaiting());
-                self.addEventListener('fetch', e => e.respondWith(fetch(e.request)));
+                const CACHE_NAME = 'panokirja-v1.2';
+                const ASSETS = ['./', './index.html', 'manifest.json'];
+                self.addEventListener('install', e => {
+                    e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(ASSETS)));
+                    self.skipWaiting();
+                });
+                self.addEventListener('fetch', e => {
+                    e.respondWith(caches.match(e.request).then(r => r || fetch(e.request)));
+                });
             `;
             const blob = new Blob([swCode], { type: 'application/javascript' });
             const swUrl = URL.createObjectURL(blob);
@@ -524,4 +531,3 @@
 </script>
 </body>
 </html>
-
