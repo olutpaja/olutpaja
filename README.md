@@ -1,4 +1,5 @@
-## Hei! 👋
+<img src="kuvake.png" width="100">
+<h2>Hei! 👋</h2>
 
 <!--
 **olutpaja/olutpaja** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
