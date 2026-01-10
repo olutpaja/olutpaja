@@ -1,7 +1,7 @@
 {
-  "name": "Pekan Olutpaja - Panokirja Pro",
-  "short_name": "Panokirja",
-  "description": "Virallinen oluen panopäiväkirja",
+  "name": "Olutpaja Lite",
+  "short_name": "Olutpaja Lite",
+  "description": "Pekan Olutpaja - Panopäiväkirja Lite",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0f172a",
@@ -10,13 +10,13 @@
   "lang": "fi",
   "icons": [
     {
-      "src": "https://cdn-icons-png.flaticon.com/512/931/931949.png",
+      "src": "icon.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://cdn-icons-png.flaticon.com/512/931/931949.png",
+      "src": "icon.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
