@@ -194,10 +194,8 @@
 <main class="container">
 
     <!-- VÄLILEHTI 1: PANOKIRJA -->
-
+    <!-- LISÄTÄÄN KUVA -->
     <img src="kuvake.png" style="display: block; margin: 0 auto; width: 100px; margin: 0 auto 20px auto;">
-    
-
     
     <div id="tab-diary" class="tab-content active">
         <div class="card">
@@ -289,7 +287,7 @@
                         <tr>
                             <th style="width:50px; text-align:center">Pvä</th>
                             <th style="width:85px">Lämpötila</th>
-                            <th style="width:100px">Ominaispaino</th>
+                            <th style="width:100px">Ominaispaino (SG)</th>
                             <th>Huomiot (vesilukon kuplat...)</th>
                         </tr>
                     </thead>
@@ -343,10 +341,10 @@
         </section>
     </div>
 
-    
+    <!-- SANASTO JA OHJEET -->
     <div id="tab-manual" class="tab-content">
     <section class="card">
-        <h2>Sanasto ja ohjeet</h2>
+        <h2>Sanastoa ja ohjeet</h2>
         <div style="font-size: 0.9rem; line-height: 1.6; color: #cbd5e1;">
             <p><strong style="color: var(--gold);">OG (Original Gravity):</strong> Alkuominaispaino. Mitataan ennen hiivaa. Kertoo sokerimäärän alussa.</p>
             <p><strong style="color: var(--gold);">SG (Specific Gravity):</strong> Ominaispaino. Käytetään käymisen seurantaan.</p>
@@ -359,7 +357,7 @@
             <ul style="padding-left: 20px;">
                 <li><strong>Tallennus:</strong> Muista painaa "Tallenna erä" jokaisen muutoksen jälkeen.</li>
                 <li><strong>Varmuuskopio:</strong> Vie JSON-tiedosto säännöllisesti Asetukset-sivulta.</li>
-                <li><strong>Käyminen:</strong> Jos SG pysyy samana 3 päivää, olut on valmis pullotettavaksi.</li>
+                <li><strong>Käyminen:</strong> Jos SG eli ominaispaino pysyy samana 3 päivää, olut on valmis pullotettavaksi.</li>
             </ul>
         </div>
     </section>
@@ -565,6 +563,7 @@
 </script>
 </body>
 </html>
+
 
 
 
