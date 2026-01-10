@@ -39,4 +39,4 @@ Olutpaja Lite tallentaa kaikki tiedot laitteesi paikalliseen muistiin (LocalStor
 <i>Versio: 1.4</i>
 
 <i><B>Lisenssi:</B><BR>
-<b>Ei kaupalliseen toimintaan, yksityisen, yhdistyksen tai yrityksen toimesta!</b> Vapaaseen harrastekäyttöön. HTML-koodi on vapaassa käytössä ja sinulla on oikeus muokata ohjelmaa haluamallasi tavalla. Luo oma versiosi ja jaa se maailmalle!   </i>
+<b>Ei kaupalliseen toimintaan, yksityisen, yhdistyksen tai yrityksen toimesta!</b> Vapaaseen harrastekäyttöön. HTML-koodi on vapaassa käytössä ja sinulla on oikeus muokata ohjelmaa haluamallasi tavalla. Luo oma versiosi ja jaa se maailmalle! <b>Huom! Olutpaja Lite -logo ei ole vapaassa käytössä, kuvan oikeudet kuuluu Pekka Niemistölle (Pekan Olutpaja).</b>   </i>
