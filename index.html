@@ -186,8 +186,8 @@
 <body>
 
 <header class="header">
-    <span class="brand-sub">Panopäiväkirja</span>
-    <h1 class="brand-main" id="header-brewery-name">PEKAN OLUTPAJA</h1>
+    <span class="brand-sub">Virallinen panopäiväkirja</span>
+    <h1 class="brand-main" id="header-brewery-name">OLUTPAJA LITE</h1>
     <div class="brand-divider"></div>
 </header>
 
@@ -347,7 +347,7 @@
 
 <footer>
     <div class="footer-line"></div>
-    &copy; 2026 <span id="footer-copy-text">PEKAN OLUTPAJA (Pekka Niemistö)</span>
+    &copy; 2026 <span id="footer-copy-text">Olutpaja Lite (Pekka Niemistö)</span>
     <div class="footer-credit">Sovelluksen toteutus: Pekka Niemistö</div>
     <div class="footer-version">Versio 1.4</div>
 </footer>
@@ -357,7 +357,7 @@
     const SETTINGS_KEY = 'pekan_lite_settings_v1.3_complete';
     
     let batches = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-    let settings = JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{"brewery":"PEKAN OLUTPAJA", "master":"Pekka Niemistö"}');
+    let settings = JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{"brewery":"OLUTPAJA LITE", "master":"Pekka Niemistö"}');
 
     // Service Worker for PWA
     if ('serviceWorker' in navigator) {
@@ -401,7 +401,7 @@
     }
 
     function saveSettings() {
-        settings.brewery = document.getElementById('set-brewery-name').value.trim() || "PEKAN OLUTPAJA";
+        settings.brewery = document.getElementById('set-brewery-name').value.trim() || "OLUTPAJA LITE";
         settings.master = document.getElementById('set-brewmaster-name').value.trim() || "Pekka Niemistö";
         localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
         applySettings();
@@ -504,21 +504,15 @@
         else { res.innerText = "0.0%"; }
     }
 
-    // JSON EXPORT/IMPORT LOGIC
+    // JSON EXPORT/IMPORT
     function exportData() {
-        const backup = {
-            batches: batches,
-            settings: settings,
-            exportedAt: new Date().toISOString()
-        };
+        const backup = { batches: batches, settings: settings, exportedAt: new Date().toISOString() };
         const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
         a.download = `olutpaja_lite_backup_${new Date().toISOString().split('T')[0]}.json`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
         URL.revokeObjectURL(url);
         showStatus("Varmuuskopio luotu!");
     }
@@ -526,26 +520,17 @@
     function importData(event) {
         const file = event.target.files[0];
         if (!file) return;
-
         const reader = new FileReader();
         reader.onload = function(e) {
             try {
                 const data = JSON.parse(e.target.result);
                 if (confirm("Tämä korvaa nykyiset tiedot. Jatketaanko?")) {
-                    if (data.batches) {
-                        batches = data.batches;
-                        localStorage.setItem(STORAGE_KEY, JSON.stringify(batches));
-                    }
-                    if (data.settings) {
-                        settings = data.settings;
-                        localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
-                    }
+                    if (data.batches) { batches = data.batches; localStorage.setItem(STORAGE_KEY, JSON.stringify(batches)); }
+                    if (data.settings) { settings = data.settings; localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)); }
                     alert("Tiedot palautettu onnistuneesti!");
                     location.reload();
                 }
-            } catch (err) {
-                alert("Virhe tiedoston lukemisessa! Varmista että kyseessä on oikea .json-tiedosto.");
-            }
+            } catch (err) { alert("Virhe tiedoston lukemisessa!"); }
         };
         reader.readAsText(file);
     }
