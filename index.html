@@ -343,11 +343,34 @@
         </section>
     </div>
 
+    
+    <div id="tab-manual" class="tab-content">
+    <section class="card">
+        <h2>Sanasto ja ohjeet</h2>
+        <div style="font-size: 0.9rem; line-height: 1.6; color: #cbd5e1;">
+            <p><strong style="color: var(--gold);">OG (Original Gravity):</strong> Alkuominaispaino. Mitataan ennen hiivaa. Kertoo sokerimäärän alussa.</p>
+            <p><strong style="color: var(--gold);">SG (Specific Gravity):</strong> Ominaispaino. Käytetään käymisen seurantaan.</p>
+            <p><strong style="color: var(--gold);">FG (Final Gravity):</strong> Loppuominaispaino. Mitataan kun käyminen on loppunut.</p>
+            <p><strong style="color: var(--gold);">ABV:</strong> Alkoholipitoisuus prosentteina.</p>
+            
+            <hr style="border: 0; border-top: 1px solid var(--border); margin: 20px 0;">
+            
+            <h3>Pikaohjeet</h3>
+            <ul style="padding-left: 20px;">
+                <li><strong>Tallennus:</strong> Muista painaa "Tallenna erä" jokaisen muutoksen jälkeen.</li>
+                <li><strong>Varmuuskopio:</strong> Vie JSON-tiedosto säännöllisesti Asetukset-sivulta.</li>
+                <li><strong>Käyminen:</strong> Jos SG pysyy samana 3 päivää, olut on valmis pullotettavaksi.</li>
+            </ul>
+        </div>
+    </section>
+</div>
+
 </main>
 
 <nav class="nav-bar">
     <button class="nav-btn active" id="nav-diary" onclick="switchTab('diary')">Panokirja</button>
     <button class="nav-btn" id="nav-settings" onclick="switchTab('settings')">Asetukset</button>
+    <button class="nav-btn" id="nav-manual" onclick="switchTab('manual')">Ohjeet</button>
 </nav>
 
 <footer>
@@ -542,6 +565,7 @@
 </script>
 </body>
 </html>
+
 
 
 
